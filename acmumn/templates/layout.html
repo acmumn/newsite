@@ -2,10 +2,35 @@
 <html lang="en">
 	<head>
 		<title>{% if title %}{{ title }} - {% endif %}ACM UMN</title>
-		<link rel="stylesheet" href="/css/main.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/static/css/main.css" />
 	</head>
 
 	<body>
-		<h1>Acm Umn.</h1>
+        <div id="umn-header" class="navbar">
+            <a href="https://umn.edu" target="_blank">University of Minnesota</a>
+            <div style="float: right;">
+                <a href="https://onestop.umn.edu" target="_blank">Onestop</a>
+                <a href="https://myu.umn.edu" target="_blank">MyU</a>
+            </div>
+        </div>
+        <div id="main-navbar" class="navbar">
+            <ul class="nav-right">
+                {% if current_user.is_authenticated %}
+                    <li>Hello, {{ current_user.name }}</li>
+                    <li><a href="{{ url_for('acmumn.views.logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('acmumn.views.login') }}">Member Login</a></li>
+                {% endif %}
+            </ul>
+            <ul class="nav-left">
+                <li><a href="{{ url_for('acmumn.views.index') }}" id="title"><b>ACM UMN</b></a></li>
+                <li><a href="{{ url_for('acmumn.views.officers') }}" {% if request.endpoint == 'acmumn.views.officers' %}class="active"{% endif %}>Officers</a></li>
+                <li><a href="{{ url_for('acmumn.views.events') }}" {% if request.endpoint == 'acmumn.views.events' %}class="active"{% endif %}>Events</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
 	</body>
 </html>

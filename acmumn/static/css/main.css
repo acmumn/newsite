@@ -1,0 +1,78 @@
+@font-face {
+    font-family: "Roboto Mono";
+    src: url(/static/fonts/RobotoMono-Regular.ttf) format("truetype");
+}
+
+body {
+    max-width: 940px;
+    margin: auto;
+}
+
+body * {
+    font-family: "Roboto Mono", monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    padding: 8px 12px;
+}
+
+/* umn header */
+
+#umn-header {
+    background-color: #7a0019;
+    color: #ffffff;
+}
+
+#umn-header a {
+    color: #ffffff;
+}
+
+/* navbar */
+
+#main-navbar {
+    background-color: #0066cc;
+    color: #ffffff;
+}
+
+#main-navbar #title {
+    font-size: 1.2em;
+}
+
+#main-navbar a {
+    color: #ffffff;
+}
+
+#main-navbar ul {
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+}
+
+#main-navbar ul li {
+    margin: 0 8px;
+    display: inline;
+}
+
+#main-navbar ul li.active {
+
+}
+
+#main-navbar .nav-right {
+    float: right;
+}
+
+/* content */
+
+.content {
+    padding: 12px;
+}
+

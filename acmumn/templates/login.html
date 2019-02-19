@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Member Login</h1>
+
+    {% if not sent %}
+        <p>
+            Enter your email and we'll send you a link that will log you in. <br />
+            If you don't have an account then see one of the officers!
+        </p>
+
+        <form method="POST">
+            {{ login_form.csrf_token }}
+            {% for error in login_form.email.errors %}<p style="color: red;">{{ error }}</p>{% endfor %}
+            <p>
+                {{ login_form.email(placeholder="email", autocomplete="off") }}
+                {{ login_form.submit }}
+            </p>
+        </form>
+    {% else %}
+        <p>If that email address exists in our system, it'll receive an email with a login link soon!</p>
+        <p>You can now close this page.</p>
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Officers</h1>
+
+    <ul>
+        {% for officer in officers %}
+            <li>{{ officer.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
